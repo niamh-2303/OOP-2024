@@ -33,7 +33,7 @@ public class LifeBoard {
             for(int col = 0; col < cols; col ++)
             {
                 float dice = p.random(1.0f);
-                board[rows][cols] = (dice < 0.5f);
+                board[row][col] = (dice < 0.5f);
             }
         }
     }
@@ -45,7 +45,7 @@ public class LifeBoard {
 
     public void setCell(int row, int col, boolean value)
     {
-        if(row > 0 && col > 0 && row < rows && col < cols)
+        if(row >= 0 && col >= 0 && row < rows && col < cols)
         {
             board[row][col] = value;
         }
@@ -53,11 +53,11 @@ public class LifeBoard {
 
     public boolean getCell(int row, int col)
     {
-        if(row > 0 && col > 0 && row < rows && col < cols)
+        if(row >= 0 && col >= 0 && row < rows && col < cols)
         {
-            board[row][col] = value; //needs to be fixed
+            return board[row][col];
         }
-        return false;
+        return false; 
     }
 
     public void render()
